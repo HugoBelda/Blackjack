@@ -8,7 +8,6 @@
 
 # Ignorar paquetes
 
-
 # Ignorar configuraciones del proyecto
 [Pp]roject[Ss]ettings/
 
@@ -21,3 +20,6 @@ README
 readme.md
 README.md
 Readme
+
+# Ignorar el directorio .idea
+.idea/
