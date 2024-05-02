@@ -1,0 +1,21 @@
+# Ignorar carpetas de Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+
+# Ignorar archivos específicos
+*.sln
+*.csproj
+*.user
+*.unityproj
+*.pidb
+*.apk
+*.unitypackage
+
+# Ignorar archivos temporales
+*.bak
+*.tmp
+
+# Ignorar archivos generados
+*.log
