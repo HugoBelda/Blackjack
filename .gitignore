@@ -23,3 +23,15 @@ Readme
 
 # Ignorar el directorio .idea
 .idea/
+
+# Ignorar UserSettings
+UserSettings
+
+# Ignorar Blackjack.sln
+Blackjack.sln
+
+# Ignorar Assembly-CSharp.csproj
+Assembly-CSharp.csproj
+
+# Ignorar .DS_Store
+.DS_Store
