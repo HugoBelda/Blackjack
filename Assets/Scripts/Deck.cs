@@ -17,36 +17,39 @@ public class Deck : MonoBehaviour
 
     public int[] values = new int[52];
     int cardIndex = 0;
-    
+
     private void Awake()
     {
         InitCardValues();
     }
+
     private void Start()
     {
         ShuffleCards();
         StartGame();
     }
+
     private void InitCardValues()
     {
         for (int i = 0; i < values.Length; i++)
         {
-            int rango = i % 13; 
-        
-            if (rango == 0) 
+            int rango = i % 13;
+
+            if (rango == 0)
             {
                 values[i] = 1;
             }
-            else if (rango >= 1 && rango <= 9) 
+            else if (rango >= 1 && rango <= 9)
             {
                 values[i] = rango + 1;
             }
-            else 
+            else
             {
-                values[i] = 10; 
+                values[i] = 10;
             }
         }
     }
+
     private void ShuffleCards()
     {
         for (int i = 51; i > 0; i--)
@@ -61,6 +64,7 @@ public class Deck : MonoBehaviour
             values[j] = tempValue;
         }
     }
+
     void StartGame()
     {
         for (int i = 0; i < 2; i++)
@@ -68,7 +72,9 @@ public class Deck : MonoBehaviour
             PushPlayer();
             PushDealer();
         }
+        CheckBlackjack();
     }
+
     private void CalculateProbabilities()
     {
         int playerPoints = player.GetComponent<CardHand>().points;
@@ -86,6 +92,7 @@ public class Deck : MonoBehaviour
                 probabilidadDealerGanaConCartaOculta += 1f;
             }
         }
+
         probabilidadDealerGanaConCartaOculta = (probabilidadDealerGanaConCartaOculta / restantes.Length) * 100f;
 
         float probabilidadJugadorEntre17Y21 = 0f;
@@ -116,19 +123,20 @@ public class Deck : MonoBehaviour
             $"17<=x<=21: {probabilidadJugadorEntre17Y21}%\n" +
             $"x>21: {probabilidadJugadorSePasa}%";
     }
+
     void PushDealer()
     {
         dealer.GetComponent<CardHand>().Push(faces[cardIndex], values[cardIndex]);
         cardIndex++;
     }
-
+    
     void PushPlayer()
     {
         player.GetComponent<CardHand>().Push(faces[cardIndex], values[cardIndex]);
         cardIndex++;
-        int playerPoints = player.GetComponent<CardHand>().points;
-        TextPointsP.text = $" {playerPoints}";
-
+    
+        int playerPoints = CalcularPuntosJugador();
+        TextPointsP.text = $"{playerPoints}";
         CalculateProbabilities();
     }
 
@@ -153,6 +161,7 @@ public class Deck : MonoBehaviour
             PushDealer();
             dealerPoints = dealer.GetComponent<CardHand>().points;
         }
+        
         TextPointsD.text = $"{dealerPoints}";
         int playerPoints = player.GetComponent<CardHand>().points;
         dealerPoints = dealer.GetComponent<CardHand>().points;
@@ -173,9 +182,59 @@ public class Deck : MonoBehaviour
         {
             finalMessage.text = "Empate!";
         }
+
         EndGame();
     }
-    
+    void CheckBlackjack()
+    {
+        int playerPoints = player.GetComponent<CardHand>().points;
+        int dealerPoints = dealer.GetComponent<CardHand>().points;
+
+        if (playerPoints == 21 && dealerPoints != 21)
+        {
+            finalMessage.text = "Jugador tiene Blackjack!";
+            EndGame();
+        }
+        else if (dealerPoints == 21 && playerPoints != 21)
+        {
+            finalMessage.text = "Dealer tiene Blackjack!";
+            EndGame();
+        }
+        else if (playerPoints == 21 && dealerPoints == 21)
+        {
+            finalMessage.text = "Empate!";
+            EndGame();
+        }
+    }
+    private int CalcularPuntosJugador()
+    {
+        var playerHand = player.GetComponent<CardHand>().cards;
+
+        int totalPoints = 0;
+        int acesCount = 0;
+
+        foreach (var cardObj in playerHand)
+        {
+            int cardValue = cardObj.GetComponent<CardModel>().value;
+
+            if (cardValue == 1)
+            {
+                acesCount++;
+                totalPoints += 11;
+            }
+            else
+            {
+                totalPoints += cardValue;
+            }
+        }
+        while (totalPoints > 21 && acesCount > 0)
+        {
+            totalPoints -= 10;
+            acesCount--;
+        }
+
+        return totalPoints;
+    }
     public void PlayAgain()
     {
         hitButton.interactable = true;
@@ -187,6 +246,7 @@ public class Deck : MonoBehaviour
         ShuffleCards();
         StartGame();
     }
+
     private void EndGame()
     {
         hitButton.interactable = false;
