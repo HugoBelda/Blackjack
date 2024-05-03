@@ -17,6 +17,7 @@ public class Deck : MonoBehaviour
 
     public int[] values = new int[52];
     int cardIndex = 0;
+    private bool prueba = true;
 
     private void Awake()
     {
