@@ -20,9 +20,6 @@ public class Deck : MonoBehaviour
     public Text probMessage;
     public Text TextPointsP;
     public Text TextPointsD;
-    public Text TextoBanca;
-
-    private int banca = 1000;
 
     public int[] values = new int[52];
     int cardIndex = 0;
@@ -273,10 +270,7 @@ public class Deck : MonoBehaviour
         stickButton.interactable = false;
     }
 
-    private void ActualizarBanca()
-    {
-        TextoBanca.text = banca.ToString() + "€";
-    }
+    
 
    
 }

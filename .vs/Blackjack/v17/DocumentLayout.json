@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\mayet\\Desktop\\Blackjack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|c:\\users\\mayet\\desktop\\blackjack\\assets\\scripts\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|c:\\users\\mayet\\desktop\\blackjack\\assets\\scripts\\apuesta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\apuesta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|c:\\users\\mayet\\desktop\\blackjack\\assets\\scripts\\cardhand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|C:\\Users\\mayet\\Desktop\\Blackjack\\assets\\scripts\\cardhand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cardhand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|c:\\users\\mayet\\desktop\\blackjack\\assets\\scripts\\cardmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|C:\\Users\\mayet\\Desktop\\Blackjack\\assets\\scripts\\cardmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cardmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|C:\\Users\\mayet\\Desktop\\Blackjack\\assets\\scripts\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{80ED5036-DF2F-73FD-6FAD-B50E1319C32E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\deck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,8 +26,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Apuesta.cs",
+              "DocumentMoniker": "C:\\Users\\mayet\\Desktop\\Blackjack\\Assets\\Scripts\\Apuesta.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Apuesta.cs",
+              "ToolTip": "C:\\Users\\mayet\\Desktop\\Blackjack\\Assets\\Scripts\\Apuesta.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Apuesta.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAkwE0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-04T09:50:43.613Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -47,21 +64,19 @@
               "RelativeToolTip": "Assets\\Scripts\\CardModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-04T08:14:21.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-04T08:14:21.624Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Deck.cs",
               "DocumentMoniker": "C:\\Users\\mayet\\Desktop\\Blackjack\\Assets\\Scripts\\Deck.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Deck.cs",
               "ToolTip": "C:\\Users\\mayet\\Desktop\\Blackjack\\Assets\\Scripts\\Deck.cs",
               "RelativeToolTip": "Assets\\Scripts\\Deck.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAgwBcAAAAAAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwBUAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-04T08:14:18.458Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-04T08:14:18.458Z"
             }
           ]
         }
