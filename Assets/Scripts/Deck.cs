@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 
 public class Deck : MonoBehaviour
 {
@@ -72,13 +73,8 @@ public class Deck : MonoBehaviour
         for (int i = 51; i > 0; i--)
         {
             int j = UnityEngine.Random.Range(0, i + 1);
-            Sprite tempSprite = faces[i];
-            faces[i] = faces[j];
-            faces[j] = tempSprite;
-
-            int tempValue = values[i];
-            values[i] = values[j];
-            values[j] = tempValue;
+            (faces[i], faces[j]) = (faces[j], faces[i]);
+            (values[i], values[j]) = (values[j], values[i]);
         }
     }
 
@@ -99,7 +95,19 @@ public class Deck : MonoBehaviour
         Array.Copy(values, cardIndex, restantes, 0, 52 - cardIndex);
 
         int valorCartaOcultaDealer = values[cardIndex];
+        Debug.Log($"valor carta oculta: {valorCartaOcultaDealer}");
         float probabilidadDealerGanaConCartaOculta = 0f;
+
+
+        String rest = "";
+        for (int i = 0; i < restantes.Length; i++)
+        {
+            rest += restantes[i];
+            rest += ", ";
+        }
+
+        Debug.Log($"restantes: {rest}");
+        
 
         for (int i = 0; i < restantes.Length; i++)
         {
