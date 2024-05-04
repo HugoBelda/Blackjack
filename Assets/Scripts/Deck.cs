@@ -5,19 +5,26 @@ using System;
 public class Deck : MonoBehaviour
 {
     public Sprite[] faces;
+
     public GameObject dealer;
     public GameObject player;
+
     public Button hitButton;
     public Button stickButton;
     public Button playAgainButton;
+    public Button RepartirCartasButton;
+    public Button ApostarButton;
+
     public Text finalMessage;
     public Text probMessage;
     public Text TextPointsP;
     public Text TextPointsD;
+    public Text TextoBanca;
+
+    private int banca = 1000;
 
     public int[] values = new int[52];
     int cardIndex = 0;
-    private bool prueba = true;
 
     private void Awake()
     {
@@ -28,6 +35,12 @@ public class Deck : MonoBehaviour
     {
         ShuffleCards();
         StartGame();
+    }
+
+
+    private void IniciarJuego() 
+    { 
+
     }
 
     private void InitCardValues()
@@ -252,5 +265,10 @@ public class Deck : MonoBehaviour
     {
         hitButton.interactable = false;
         stickButton.interactable = false;
+    }
+
+    private void ActualizarBanca()
+    {
+        TextoBanca.text = banca.ToString() + "€";
     }
 }
