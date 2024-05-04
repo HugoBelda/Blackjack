@@ -36,6 +36,3 @@ Assembly-CSharp.csproj
 # Ignorar .DS_Store
 .DS_Store
 
-.vs/Blackjack/FileContentIndex/9b2a59eb-43c9-4416-98f9-299815cd8ff8.vsidx
-
-*.vsidx
