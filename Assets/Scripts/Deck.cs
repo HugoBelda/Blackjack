@@ -22,8 +22,6 @@ public class Deck : MonoBehaviour
     public Text TextPointsD;
     public Text TextoBanca;
 
-
-
     private int banca = 1000;
 
     public int[] values = new int[52];
@@ -263,8 +261,10 @@ public class Deck : MonoBehaviour
         player.GetComponent<CardHand>().Clear();
         dealer.GetComponent<CardHand>().Clear();
         cardIndex = 0;
-        ShuffleCards();
-        StartGame();
+
+        RepartirCartasButton.gameObject.SetActive(true);
+        ApostarButton.gameObject.SetActive(true);
+        elementosJuego.SetActive(false);
     }
 
     private void EndGame()
