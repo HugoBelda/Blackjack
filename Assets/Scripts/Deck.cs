@@ -8,6 +8,7 @@ public class Deck : MonoBehaviour
 
     public GameObject dealer;
     public GameObject player;
+    public GameObject elementosJuego;
 
     public Button hitButton;
     public Button stickButton;
@@ -21,6 +22,8 @@ public class Deck : MonoBehaviour
     public Text TextPointsD;
     public Text TextoBanca;
 
+
+
     private int banca = 1000;
 
     public int[] values = new int[52];
@@ -33,14 +36,17 @@ public class Deck : MonoBehaviour
 
     private void Start()
     {
-        ShuffleCards();
-        StartGame();
+        
     }
 
 
-    private void IniciarJuego() 
-    { 
-
+    public void IniciarJuego() 
+    {
+        RepartirCartasButton.gameObject.SetActive(false);
+        ApostarButton.gameObject.SetActive(false);
+        elementosJuego.SetActive(true);
+        ShuffleCards();
+        StartGame();
     }
 
     private void InitCardValues()
@@ -271,4 +277,6 @@ public class Deck : MonoBehaviour
     {
         TextoBanca.text = banca.ToString() + "€";
     }
+
+   
 }
