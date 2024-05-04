@@ -6,6 +6,8 @@ public class Deck : MonoBehaviour
 {
     public Sprite[] faces;
 
+    public Apuesta apuesta;
+
     public GameObject dealer;
     public GameObject player;
     public GameObject elementosJuego;
@@ -163,6 +165,7 @@ public class Deck : MonoBehaviour
         if (playerPoints > 21)
         {
             finalMessage.text = "El jugador pierde!";
+            apuesta.PerderApuesta();
             EndGame();
         }
     }
@@ -184,18 +187,22 @@ public class Deck : MonoBehaviour
         if (dealerPoints > 21)
         {
             finalMessage.text = "El dealer pierde!";
+            apuesta.GanarApuesta();
         }
         else if (playerPoints > dealerPoints)
         {
             finalMessage.text = "El jugador gana!";
+            apuesta.GanarApuesta();
         }
         else if (playerPoints < dealerPoints)
         {
             finalMessage.text = "El dealer gana!";
+            apuesta.PerderApuesta();
         }
         else
         {
             finalMessage.text = "Empate!";
+            apuesta.EmpateApuesta();
         }
 
         EndGame();
@@ -208,16 +215,19 @@ public class Deck : MonoBehaviour
         if (playerPoints == 21 && dealerPoints != 21)
         {
             finalMessage.text = "Jugador tiene Blackjack!";
+            apuesta.GanarApuesta();
             EndGame();
         }
         else if (dealerPoints == 21 && playerPoints != 21)
         {
             finalMessage.text = "Dealer tiene Blackjack!";
+            apuesta.PerderApuesta();
             EndGame();
         }
         else if (playerPoints == 21 && dealerPoints == 21)
         {
             finalMessage.text = "Empate!";
+            apuesta.EmpateApuesta();
             EndGame();
         }
     }
