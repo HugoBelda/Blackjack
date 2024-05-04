@@ -268,6 +268,7 @@ public class Deck : MonoBehaviour
         player.GetComponent<CardHand>().Clear();
         dealer.GetComponent<CardHand>().Clear();
         cardIndex = 0;
+        TextPointsD.text = "?";
 
         RepartirCartasButton.gameObject.SetActive(true);
         ApostarButton.gameObject.SetActive(true);
