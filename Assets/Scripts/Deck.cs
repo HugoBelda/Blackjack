@@ -34,11 +34,10 @@ public class Deck : MonoBehaviour
 
     private void Start()
     {
-        
     }
 
 
-    public void IniciarJuego() 
+    public void IniciarJuego()
     {
         RepartirCartasButton.gameObject.SetActive(false);
         ApostarButton.gameObject.SetActive(false);
@@ -85,6 +84,7 @@ public class Deck : MonoBehaviour
             PushPlayer();
             PushDealer();
         }
+
         CheckBlackjack();
     }
 
@@ -97,7 +97,7 @@ public class Deck : MonoBehaviour
         int valorCartaOcultaDealer = values[cardIndex];
         Debug.Log($"valor carta oculta: {valorCartaOcultaDealer}");
         float probabilidadDealerGanaConCartaOculta = 0f;
-        
+
         for (int i = 0; i < restantes.Length; i++)
         {
             int puntosPosiblesDealer = valorCartaOcultaDealer + restantes[i];
@@ -118,7 +118,7 @@ public class Deck : MonoBehaviour
                 probabilidadJugadorEntre17Y21 += 1f;
             }
         }
-        
+
         probabilidadJugadorEntre17Y21 = (probabilidadJugadorEntre17Y21 / restantes.Length) * 100f;
 
         float probabilidadJugadorSePasa = 0f;
@@ -143,12 +143,12 @@ public class Deck : MonoBehaviour
         dealer.GetComponent<CardHand>().Push(faces[cardIndex], values[cardIndex]);
         cardIndex++;
     }
-    
+
     void PushPlayer()
     {
         player.GetComponent<CardHand>().Push(faces[cardIndex], values[cardIndex]);
         cardIndex++;
-    
+
         int playerPoints = CalcularPuntosJugador();
         TextPointsP.text = $"{playerPoints}";
         CalculateProbabilities();
@@ -176,7 +176,7 @@ public class Deck : MonoBehaviour
             PushDealer();
             dealerPoints = dealer.GetComponent<CardHand>().points;
         }
-        
+
         TextPointsD.text = $"{dealerPoints}";
         int playerPoints = player.GetComponent<CardHand>().points;
         dealerPoints = dealer.GetComponent<CardHand>().points;
@@ -204,30 +204,34 @@ public class Deck : MonoBehaviour
 
         EndGame();
     }
+
     void CheckBlackjack()
     {
-        int playerPoints = player.GetComponent<CardHand>().points;
         int dealerPoints = dealer.GetComponent<CardHand>().points;
+        int playerPoints = CalcularPuntosJugador();
 
-        if (playerPoints == 21 && dealerPoints != 21)
+        if (playerPoints == 21)
         {
-            finalMessage.text = "Jugador tiene Blackjack!";
+            finalMessage.text = "¡Jugador tiene Blackjack!";
+            Debug.Log("¡Jugador tiene Blackjack!");
             apuesta.GanarApuesta();
             EndGame();
         }
-        else if (dealerPoints == 21 && playerPoints != 21)
+
+        if (dealerPoints == 21)
         {
-            finalMessage.text = "Dealer tiene Blackjack!";
+            finalMessage.text = "¡Dealer tiene Blackjack!";
             apuesta.PerderApuesta();
             EndGame();
         }
-        else if (playerPoints == 21 && dealerPoints == 21)
+        if (dealerPoints == 21 && playerPoints == 21)
         {
             finalMessage.text = "Empate!";
             apuesta.EmpateApuesta();
             EndGame();
         }
     }
+
     private int CalcularPuntosJugador()
     {
         var playerHand = player.GetComponent<CardHand>().cards;
@@ -249,6 +253,7 @@ public class Deck : MonoBehaviour
                 totalPoints += cardValue;
             }
         }
+
         while (totalPoints > 21 && acesCount > 0)
         {
             totalPoints -= 10;
@@ -257,6 +262,7 @@ public class Deck : MonoBehaviour
 
         return totalPoints;
     }
+
     public void PlayAgain()
     {
         hitButton.interactable = true;
@@ -266,15 +272,16 @@ public class Deck : MonoBehaviour
         dealer.GetComponent<CardHand>().Clear();
         cardIndex = 0;
         TextPointsD.text = "?";
-
         RepartirCartasButton.gameObject.SetActive(true);
         ApostarButton.gameObject.SetActive(true);
         elementosJuego.SetActive(false);
+        CheckBlackjack();
     }
 
     private void EndGame()
     {
         hitButton.interactable = false;
         stickButton.interactable = false;
+        Debug.Log("EndGame");
     }
 }
