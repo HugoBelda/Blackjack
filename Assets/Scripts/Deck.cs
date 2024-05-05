@@ -97,18 +97,7 @@ public class Deck : MonoBehaviour
         int valorCartaOcultaDealer = values[cardIndex];
         Debug.Log($"valor carta oculta: {valorCartaOcultaDealer}");
         float probabilidadDealerGanaConCartaOculta = 0f;
-
-
-        String rest = "";
-        for (int i = 0; i < restantes.Length; i++)
-        {
-            rest += restantes[i];
-            rest += ", ";
-        }
-
-        Debug.Log($"restantes: {rest}");
         
-
         for (int i = 0; i < restantes.Length; i++)
         {
             int puntosPosiblesDealer = valorCartaOcultaDealer + restantes[i];
@@ -288,8 +277,4 @@ public class Deck : MonoBehaviour
         hitButton.interactable = false;
         stickButton.interactable = false;
     }
-
-    
-
-   
 }
